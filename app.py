@@ -9,8 +9,9 @@ def index():
     
 @app.route('/health', methods=["GET"])
 def health():
-    # TODO: add 
+    app.logger.debug('health check')
     return "OK"
     
 if __name__ == "__main__":
+    app.logger.debug('Server up and running')
     app.run(debug=True, host='0.0.0.0', port=3000)
