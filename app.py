@@ -1,17 +1,38 @@
-from flask import Flask, render_template, request
+#!/usr/bin/python
+
+from flask import Flask, render_template, request, redirect
+from werkzeug import secure_filename
 import logging
+import os
 
 app = Flask(__name__)
 
-@app.route('/')
+app.config['UPLOAD_FOLDER'] = os.path.abspath('temp_uploads')
+
+@app.route('/', methods=["GET", "POST"])
 def index():
-    return render_template('index.html')
+    import pdf 
     
+    if request.method == "POST":
+        
+        file = request.files['file']
+        extension = file.filename.split('.')[-1]
+        if extension == 'pdf':
+            filename = secure_filename(file.filename)
+            
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            return pdf.split()
+        else: 
+            return redirect(request.url)
+            
+    return render_template('index.html')        
+        
 @app.route('/health', methods=["GET"])
 def health():
     app.logger.debug('health check')
     return "OK"
     
 if __name__ == "__main__":
+    
     app.logger.debug('Server up and running')
-    app.run(debug=True, host='0.0.0.0', port=3000)
+    app.run(debug=True, port=3000)
