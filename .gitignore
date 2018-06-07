@@ -3,3 +3,4 @@ venv
 
 # compiled files
 *.pyc
+*.pdf

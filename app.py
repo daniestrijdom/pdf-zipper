@@ -1,5 +1,3 @@
-#!/usr/bin/python
-
 from flask import Flask, render_template, request, redirect
 from werkzeug import secure_filename
 import logging
@@ -21,7 +19,8 @@ def index():
             filename = secure_filename(file.filename)
             
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return pdf.split()
+            pdf.split(filename)
+            
         else: 
             return redirect(request.url)
             
