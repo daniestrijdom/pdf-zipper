@@ -9,7 +9,9 @@ app.config['UPLOAD_FOLDER'] = os.path.abspath('temp_uploads')
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    import pdf 
+    import pdf
+    import zip 
+    import cleanup
     
     if request.method == "POST":
         
@@ -17,9 +19,12 @@ def index():
         extension = file.filename.split('.')[-1]
         if extension == 'pdf':
             filename = secure_filename(file.filename)
+            print filename
             
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             pdf.split(filename)
+            zip.makeZip()
+            cleanup.resetSource(filename)
             
         else: 
             return redirect(request.url)

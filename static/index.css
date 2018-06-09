@@ -1,18 +1,36 @@
+body {
+  background-color: #AA3939;
+  font-family: "Verdana", Geneva, sans-serif;
+}
+
 .app-wrapper {
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-gap: 10px;
 }
 
+.form-input {
+    margin:2%;
+}
+
+.form-group {
+  margin: 3%;
+}
+
 .header {
-  max-height: 100px;
-  background-color: #ff9999;
+  min-height: 100px;
+  background-color: #550000;
 }
 
 .box {
-    border: solid black 1px;
+  background-color: #FFAAAA;
+  border: solid black 1px;
+  border-radius: 10px;
 }
 
 .logo {
-  max-height: 100px;
+  margin: 2%;
+  max-height: 50px;
+  border-radius: 25%;
+  border: 1px solid #AA3939;
 }
