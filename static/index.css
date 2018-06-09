@@ -1,6 +1,16 @@
+.app-wrapper {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-gap: 10px;
+}
+
 .header {
   max-height: 100px;
   background-color: #ff9999;
+}
+
+.box {
+    border: solid black 1px;
 }
 
 .logo {
