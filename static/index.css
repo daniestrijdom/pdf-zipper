@@ -4,6 +4,7 @@ body {
 }
 
 .app-wrapper {
+  padding: 2%;
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-gap: 10px;
@@ -29,8 +30,34 @@ body {
 }
 
 .logo {
+  /* animation */
+  animation: spin 2s linear infinite;
+  -webkit-animation: spin 2s linear infinite;
+  -moz-animation: spin 2s linear infinite;
+  /* other */
   margin: 2%;
-  max-height: 50px;
-  border-radius: 25%;
+  max-height: 80px;
+  border-radius: 15%;
   border: 1px solid #AA3939;
 }
+
+
+@-moz-keyframes spin {
+  100% {
+     -moz-transform: rotate(360deg); 
+     } 
+   }
+}
+
+@-webkit-keyframes spin { 
+  100% {
+     -webkit-transform: rotate(360deg); 
+     } 
+   }
+@keyframes spin {
+   100% {
+      -webkit-transform: rotate(360deg); 
+      transform:rotate(360deg); 
+      } 
+    }
+

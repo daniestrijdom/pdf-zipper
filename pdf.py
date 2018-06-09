@@ -1,5 +1,3 @@
-
-
 def split(filename):
     from PyPDF2 import PdfFileReader, PdfFileWriter
     import os
@@ -17,13 +15,12 @@ def split(filename):
         
         output.addPage(inputFile.getPage(pageNumber))
         
-        newFile = "".join(['temp_results/',filename.split('.pdf')[0], str(pageNumber), ".pdf"])
+        newFile = "".join(['temp_results/',filename.split('.pdf')[0], '_', str(pageNumber), ".pdf"])
         
         with open(newFile, 'wb') as outputStream:
             output.write(outputStream)
     
-    
-    return "done"
+    return 
         
         
     
